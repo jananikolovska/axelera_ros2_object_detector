@@ -1,12 +1,12 @@
-# Axelera AI x ROS2 Integration
+# 🤖 Axelera AI x ROS2 Integration
 
 This ROS2 workspace contains packages for integrating Axelera AI inference capabilities with ROS2, specifically designed for YOLO object detection demo using either camera input or streamed video.
 
-## Overview
+## 🎯 Overview
 
 This workspace demonstrates the integration of Axelera AI's hardware acceleration platform with ROS2 for real-time computer vision applications. The workspace is structured to provide both C++ and Python implementations for AI inference nodes, along with supporting helper utilities.
 
-## Packages
+## 📦 Packages
 
 ### 1. `ax_inference_node_cpp`
 - **Description**: C++ implementation of inference node
@@ -30,7 +30,7 @@ This workspace demonstrates the integration of Axelera AI's hardware acceleratio
   - **Display Node**: Output processing with options for visual display or text printing
 - **Dependencies**: rclpy, sensor_msgs, cv_bridge, opencv-python
 
-## Workspace Structure
+## 🏗️ Workspace Structure
 
 ```
 voyager-sdk/
@@ -43,19 +43,20 @@ voyager-sdk/
     └──
 ```
 
-## Getting Started
+## 🚀 Getting Started
 
-### Prerequisites
+### 📃 Prerequisites
 - ROS2 (Humble)
+- **Voyager SDK**: Install a virtual environment with the newest version of Voyager SDK from the [Axelera repository](https://github.com/axelera-ai-hub/voyager-sdk)
 - Axelera AI SDK and drivers
 - OpenCV with Python bindings
 - (optional) Camera hardware for live demo
 
-## Running the Demo
+## 🎮 Running the Demo
 
 The inference system consists of modular ROS2 nodes that work together. Each node runs in a separate terminal (this is how ROS2 works - nodes communicate via topics across different processes).
 
-### Terminal Setup
+### 🔧 Terminal Setup
 
 **Every time you open a new terminal**, you must first navigate to the ROS2 workspace inside the voyager-sdk folder and source the workspace setup:
 ```bash
@@ -70,14 +71,14 @@ colcon build
 source install/setup.bash
 ```
 
-### Launch Files Configuration
+### ⚙️ Launch Files Configuration
 
 All hardcoded values and parameters are configured in the launch files:
 - **Model parameters**: model name, AIPU cores, confidence thresholds
 - **Topic names**: input/output topic routing
 - **Processing parameters**: mean/stddev values, NMS thresholds
 
-### Inference Pipeline
+### 🕵️‍♀️ Inference Pipeline
 
 **Terminal 1 - Input Node (Choose one):**
 
@@ -93,7 +94,7 @@ ros2 run helper_nodes video_stream_node
 
 **Terminal 2 - Inference Node (Choose one):**
 
-For **C++** infernece node: 
+For **C++** infernece node:
 ```bash
 ros2 launch ax_inference_node_cpp inference_launch.py
 ```
@@ -115,7 +116,7 @@ To see the **text output** topic only:
 ros2 topic echo /detections_topic
 ```
 
-### Package Modularity
+### 🔧 Package Modularity
 
 The inference nodes (both C++ and Python) are designed as **separate packages** for easy integration:
 - **Standalone packages**: Each inference implementation can be taken independently
@@ -123,7 +124,7 @@ The inference nodes (both C++ and Python) are designed as **separate packages** 
 - **Configurable via launch**: All parameters controlled through launch files
 - **Topic-based communication**: Standard ROS2 message interfaces
 
-## Output Formats
+## 📊 Output Formats
 
 The system provides two types of output:
 
